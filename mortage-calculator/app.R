@@ -1,5 +1,6 @@
 source('mortgage.r')
 source('monthlyExpenses.r')
+source('purchaseCosts.r')
 library(shiny)
 
 # Define UI for application that draws a histogram
