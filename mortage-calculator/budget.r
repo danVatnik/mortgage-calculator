@@ -1,4 +1,7 @@
+source('positiveNumberValidator.r')
+
 budget = setRefClass("budget",
+  contains = "positiveNumberValidator",
   fields = list(
     netMonthlyRevenu = 'numeric',
     monthySpend = 'numeric',
@@ -18,20 +21,6 @@ budget = setRefClass("budget",
       validateNumber(nMr)
       validateNumber(mSp)
       validateNumber(mSa)
-    },
-    validateNumber = function(n){
-      if(!is.numeric(n)){
-        stop("Input must be a number")
-      }
-      if(is.infinite(n)){
-        stop("Input cannot be infinite")
-      }
-      if(is.nan(n)){
-        stop("Input cannot be NaN")
-      }
-      if(n < 0){
-        stop("Input cannot be negative")
-      }
     }
   )
 )

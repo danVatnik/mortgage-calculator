@@ -1,4 +1,7 @@
+source('positiveNumberValidator.r')
+
 mortgage = setRefClass("mortgage",
+  contains = "positiveNumberValidator",
   fields = list(
     propertyCost = 'numeric',
     downPayment = 'numeric',
@@ -64,20 +67,6 @@ mortgage = setRefClass("mortgage",
       }
       if(tL <= 0 ){
         stop("Term length cannot be 0")
-      }
-    },
-    validateNumber = function(n){
-      if(!is.numeric(n)){
-        stop("Input must be a number")
-      }
-      if(is.infinite(n)){
-        stop("Input cannot be infinite")
-      }
-      if(is.nan(n)){
-        stop("Input cannot be NaN")
-      }
-      if(n < 0){
-        stop("Input cannot be negative")
       }
     }
   )
