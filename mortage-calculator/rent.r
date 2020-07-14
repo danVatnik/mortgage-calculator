@@ -34,3 +34,15 @@ rent = setRefClass("rent",
     }
   )
 )
+
+renderRentInput = function(mcId, yiId, nId){
+  fluidRow(
+    column(12,
+      numericInput(mcId, "Monthly Costs ($)", 3000, min = 0),
+      numericInput(yiId, "Yearly Increase (%)", 0, min = 0),
+      numericInput(nId, "Number of years", 0, min = 0),
+      sliderInput(nId, label = "Number of years", min = 1, 
+        max = 50, value = 25, width = "100%")
+    )
+  )
+}

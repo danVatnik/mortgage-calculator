@@ -27,3 +27,14 @@ monthlyExpenses = setRefClass("monthlyExpenses",
     }
   )
 )
+
+renderMonthlyExpensesInput = function(ptId, mId, iId, fId){
+  fluidRow(
+    column(12,
+      numericInput(ptId, "Property Tax ($)", 3000, min = 0),
+      numericInput(mId, "Maintenance ($)", 0, min = 0),
+      numericInput(iId, "Insurance ($)", 0, min = 0),
+      numericInput(fId, "Fees ($)", 0, min = 0),
+    )
+  )
+}

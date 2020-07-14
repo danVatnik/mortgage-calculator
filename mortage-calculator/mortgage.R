@@ -70,4 +70,16 @@ mortgage = setRefClass("mortgage",
       }
     }
   )
-) 
+)
+
+renderMortgageInput = function(pcId, dpId, irId, tlId){
+  fluidRow(
+    column(12,
+      numericInput(pcId, "Property Cost ($)", 350000, min = 0),
+      numericInput(dpId, "Down Payment ($)", 35000, min = 0),
+      numericInput(irId, "Interest Rate (%)", 3.845, min = 0),
+      sliderInput(tlId, label = "Loan Term (yr)", min = 1, 
+        max = 50, value = 25, width = "100%")
+    )
+  )
+}

@@ -3,8 +3,8 @@ source('positiveNumberValidator.r')
 budget = setRefClass("budget",
   contains = "positiveNumberValidator",
   fields = list(
-    netMonthlyRevenu = 'numeric',
-    monthySpend = 'numeric',
+    netMonthlyRevenue = 'numeric',
+    monthlySpend = 'numeric',
     monthlySavings = 'numeric',
     availableBudget = 'numeric'
   ),
@@ -12,10 +12,10 @@ budget = setRefClass("budget",
     initialize = function(nMr, mSp, mSa){
       validateInputs(nMr, mSp, mSa)
       
-      netMonthlyRevenu <<- nMr
-      monthySpend <<- mSp
+      netMonthlyRevenue <<- nMr
+      monthlySpend <<- mSp
       monthlySavings <<- mSa
-      availableBudget <<- netMonthlyRevenu - monthySpend - monthlySavings
+      availableBudget <<- netMonthlyRevenue - monthlySpend - monthlySavings
     },
     validateInputs = function(nMr, mSp, mSa){
       validateNumber(nMr)
@@ -24,3 +24,13 @@ budget = setRefClass("budget",
     }
   )
 )
+
+renderBudgetInput = function(nMrId, mSpId, mSaId){
+  fluidRow(
+    column(12,
+      numericInput(nMrId, "Net Monthly Revenue ($)", 3000, min = 0),
+      numericInput(mSpId, "Monthly Spend ($)", 0, min = 0),
+      numericInput(mSaId, "Monthly Savings ($)", 0, min = 0),
+    )
+  )
+}
