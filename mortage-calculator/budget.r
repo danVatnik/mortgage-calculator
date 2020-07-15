@@ -25,9 +25,10 @@ budget = setRefClass("budget",
   )
 )
 
-renderBudgetInput = function(nMrId, mSpId, mSaId){
+renderBudgetInput = function(title, nMrId, mSpId, mSaId){
   fluidRow(
     column(12,
+      h4(title, style = "margin-top: 0px; border-bottom: 1px solid #e3e3e3;"),
       numericInput(nMrId, "Net Monthly Revenue ($)", 3000, min = 0),
       numericInput(mSpId, "Monthly Spend ($)", 0, min = 0),
       numericInput(mSaId, "Monthly Savings ($)", 0, min = 0),

@@ -13,22 +13,22 @@ ui <- fluidPage(
   hr(),
   
   fluidRow(
-    column(4,
+    column(12,
       wellPanel(
-        renderMortgageInput("propertyCost", "downPayment", "interestRate", "termLength"),
-        renderBudgetInput("monthlyRevenue", "monthlySpend", "monthlySavings"),
-        renderMonthlyExpensesInput("propertyTax", "maintenance", "insurance", "fees"),
-        renderPurchaseCostsInput("purchaseTax", "inspection", "notary", 'otherPurchaseCosts'),
-        renderRentInput("monthlyCost", "yearlyIncrease", "numberOfYears")
-      )      
-    ),
-    
-    column(8,
-      fluidRow(
-        textOutput("minimumMonthlyPayment")
+        fluidRow(
+          column(2, renderMortgageInput("Mortgage", "propertyCost", "downPayment", "interestRate", "termLength")),
+          column(2, renderPurchaseCostsInput("PurchaseCosts", "purchaseTax", "inspection", "notary", 'otherPurchaseCosts')),
+          column(2, renderMonthlyExpensesInput("Monthly Expenses", "propertyTax", "maintenance", "insurance", "fees"),),
+          column(2, renderRentInput("Current Rent", "monthlyCost", "yearlyIncrease", "numberOfYears")),
+          column(2, renderBudgetInput("Budget", "monthlyRevenue", "monthlySpend", "monthlySavings"))
+        )
       )
-
     )
+  ),
+  fluidRow(
+    column(8,
+      textOutput("minimumMonthlyPayment")
+    )  
   )
 )
 

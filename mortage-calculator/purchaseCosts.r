@@ -28,9 +28,10 @@ purchaseCosts = setRefClass("purchaseCosts",
   )
 )
 
-renderPurchaseCostsInput = function(ptId, iId, nId, oId){
+renderPurchaseCostsInput = function(title, ptId, iId, nId, oId){
   fluidRow(
     column(12,
+      h4(title, style = "margin-top: 0px; border-bottom: 1px solid #e3e3e3;"),
       numericInput(ptId, "Purchase Tax ($)", 3000, min = 0),
       numericInput(iId, "Inspection ($)", 0, min = 0),
       numericInput(nId, "Notary ($)", 0, min = 0),

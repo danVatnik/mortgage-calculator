@@ -72,9 +72,10 @@ mortgage = setRefClass("mortgage",
   )
 )
 
-renderMortgageInput = function(pcId, dpId, irId, tlId){
+renderMortgageInput = function(title, pcId, dpId, irId, tlId){
   fluidRow(
     column(12,
+      h4(title, style = "margin-top: 0px; border-bottom: 1px solid #e3e3e3;"),
       numericInput(pcId, "Property Cost ($)", 350000, min = 0),
       numericInput(dpId, "Down Payment ($)", 35000, min = 0),
       numericInput(irId, "Interest Rate (%)", 3.845, min = 0),
